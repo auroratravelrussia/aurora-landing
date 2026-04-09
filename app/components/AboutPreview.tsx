@@ -14,12 +14,14 @@ export default function AboutPreview() {
           <Reveal>
             <div className="relative h-125 w-full">
               <div className="absolute -inset-4 bg-aurora-gradient rounded-3xl opacity-20 blur-2xl" />
-
               <Image
                 src="/saintp.avif"
                 alt="Scenic architecture"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="relative rounded-3xl shadow-card object-cover"
+                priority
+                loading="eager"
               />
             </div>
           </Reveal>

@@ -95,9 +95,9 @@ export default function AboutPage() {
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              "https://images.unsplash.com/photo-1513326738677-b964603b136d?w=700&q=80",
-              "https://images.unsplash.com/photo-1547448415-e9f5b28e570d?w=700&q=80",
-              "https://images.unsplash.com/photo-1483347756197-71ef80e95f73?w=700&q=80",
+              "/p2.jpeg",
+              "/p3.jpeg",
+              "/p1.jpeg",
               "https://images.unsplash.com/photo-1556610961-2fecc5927173?w=700&q=80",
             ].map((src, i) => (
               <Reveal key={i} delay={i * 0.08}>
