@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 
 const links = [
@@ -17,6 +18,10 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isContact = pathname === "/contact";
+  const isSolid = scrolled || isContact;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,11 +32,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white/85 backdrop-blur-xl shadow-soft"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${isSolid
+        ? "bg-white/85 backdrop-blur-xl shadow-soft"
+        : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
         <Link href="/" className="hover:opacity-90 transition-opacity">
@@ -70,29 +74,35 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
             className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-aurora-100 overflow-hidden"
           >
-            <div className="px-6 py-5 space-y-1">
-              {links.map((l) => (
-                <Link
+            <div className="px-6 py-6 space-y-1">
+              {links.map((l, i) => (
+                <motion.div
                   key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block text-base font-medium text-ink py-2.5 hover:text-aurora-600"
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.06, duration: 0.25, ease: "easeOut" }}
                 >
-                  {l.label}
-                </Link>
+                  <Link
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className={`flex items-center justify-between py-3 px-4 rounded-xl text-base font-medium transition-all ${pathname === l.href
+                      ? "bg-aurora-50 text-aurora-700"
+                      : "text-ink hover:bg-aurora-50 hover:text-aurora-700"
+                      }`}
+                  >
+                    {l.label}
+                    {pathname === l.href && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-aurora-gradient" />
+                    )}
+                  </Link>
+                </motion.div>
               ))}
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="block mt-3 px-5 py-3 rounded-xl bg-aurora-gradient text-white text-center font-semibold"
-              >
-                Get in Touch
-              </Link>
             </div>
           </motion.div>
         )}

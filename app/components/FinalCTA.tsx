@@ -16,11 +16,11 @@ export default function FinalCTA() {
             {/* Background image - perbaikan style & opacity */}
             <div className="absolute inset-0 w-full h-full">
               <Image
-                src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/msc.avif"
                 alt="Ornate theater"
                 fill
+                sizes="(max-width: 768px) 100vw, 60vw"
                 className="object-cover brightness-[0.7] contrast-[1.05] saturate-[1.1]"
-                // brightness 0.7 meredupkan gambar, bisa disesuaikan
                 priority
               />
             </div>

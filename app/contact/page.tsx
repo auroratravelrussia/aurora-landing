@@ -4,6 +4,7 @@ import { company } from "../lib/data";
 import ContactForm from "../components/ContactForm";
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Contact – Aurora Trip",
@@ -18,6 +19,7 @@ export default function ContactPage() {
         eyebrow="Let's Talk"
         title="Get in"
         italicWord="Touch"
+        imageSrc="/saintp.avif"
         subtitle="Ready to plan your journey? Tell us what you dream of, and we'll handle everything that comes next."
       />
 
@@ -49,7 +51,7 @@ export default function ContactPage() {
             ].map((item, i) => (
               <Reveal key={item.label} delay={i * 0.08}>
                 <div className="group bg-white rounded-3xl p-6 shadow-soft hover:shadow-card transition-all flex gap-4 items-start border border-aurora-100">
-                  <div className="w-12 h-12 rounded-xl bg-aurora-gradient flex items-center justify-center flex-shrink-0 shadow-glow group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-aurora-gradient flex items-center justify-center shrink-0 shadow-glow group-hover:scale-110 transition-transform">
                     <item.icon size={20} className="text-white" />
                   </div>
                   <div>
@@ -67,7 +69,7 @@ export default function ContactPage() {
 
           {/* Form */}
           <Reveal delay={0.2} className="lg:col-span-3">
-            <div className="bg-gradient-to-br from-aurora-50 to-white rounded-3xl p-8 md:p-10 shadow-soft border border-aurora-100">
+            <div className="bg-linear-to-br from-aurora-50 to-white rounded-3xl p-8 md:p-10 shadow-soft border border-aurora-100">
               <p className="font-script text-3xl text-aurora-500 mb-1">
                 Say hello
               </p>
@@ -88,15 +90,27 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <Reveal>
             <div className="relative rounded-3xl overflow-hidden shadow-card h-80 bg-aurora-900">
-              <div className="absolute inset-0 bg-gradient-to-br from-aurora-900 via-aurora-800 to-aurora-900" />
-              <div className="absolute -top-20 -right-20 w-96 h-96 bg-glow-violet/40 blur-3xl" />
-              <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-glow-cyan/30 blur-3xl" />
+
+              {/* Background image */}
+              <Image
+                src="/aurora.avif"
+                alt="Russia"
+                fill
+                sizes="(max-width: 768px) 100vw, 80vw"
+                className="object-cover"
+              />
+
+              {/* Overlay — keeps your gradient on top of the image */}
+              <div className="absolute inset-0 bg-linear-to-br from-aurora-900/90 via-aurora-800/80 to-aurora-900/90" />
+              {/* <div className="absolute -top-20 -right-20 w-96 h-96 bg-glow-violet/40 blur-3xl" /> */}
+              {/* <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-glow-cyan/30 blur-3xl" /> */}
               <div className="absolute inset-0 dots-pattern opacity-10" />
+
               <div className="relative h-full flex items-center justify-center text-center text-white">
                 <div>
-                  <div className="w-16 h-16 rounded-2xl bg-aurora-gradient flex items-center justify-center mx-auto mb-4 shadow-glow">
+                  {/* <div className="w-16 h-16 rounded-2xl bg-aurora-gradient flex items-center justify-center mx-auto mb-4 shadow-glow">
                     <MapPin size={28} className="text-white" />
-                  </div>
+                  </div> */}
                   <p className="font-display text-3xl font-bold mb-2">
                     Based in{" "}
                     <span className="aurora-text italic">Russia</span>

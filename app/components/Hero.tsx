@@ -139,7 +139,10 @@ export default function Hero() {
               src="/hero.avif"
               alt="Aurora Trip - Moscow, Russia"
               fill
+              sizes="(max-width: 768px) 90vw, 45vw"
               className="object-cover transition-transform duration-500 hover:scale-105"
+              priority
+              loading="eager"
             />
           </div>
 
@@ -184,8 +187,9 @@ export default function Hero() {
                   <div key={i} className="relative w-8 h-8 rounded-full border-2 border-white overflow-hidden">
                     <Image
                       src={src}
-                      alt=""
+                      alt="What people say"
                       fill
+                      sizes="32px"
                       className="object-cover"
                     />
                   </div>
