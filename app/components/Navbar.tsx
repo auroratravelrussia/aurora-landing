@@ -12,6 +12,7 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/values", label: "Values" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -20,7 +21,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  const isContact = pathname === "/contact";
+  const isContact = pathname === "/contact" || "/gallery";
   const isSolid = scrolled || isContact;
 
   useEffect(() => {
