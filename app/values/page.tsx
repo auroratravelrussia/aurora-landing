@@ -7,8 +7,8 @@ import {
   Clock,
 } from "lucide-react";
 import { values } from "../lib/data";
-import PageHero from "../components/PageHero";
-import Reveal from "../components/Reveal";
+import PageHero from "../_components/PageHero";
+import Reveal from "../_components/Reveal";
 
 export const metadata: Metadata = {
   title: "Values – Aurora Trip",

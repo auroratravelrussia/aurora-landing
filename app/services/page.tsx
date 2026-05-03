@@ -11,8 +11,8 @@ import {
   Headphones,
 } from "lucide-react";
 import { services } from "../lib/data";
-import PageHero from "../components/PageHero";
-import Reveal from "../components/Reveal";
+import PageHero from "../_components/PageHero";
+import Reveal from "../_components/Reveal";
 
 export const metadata: Metadata = {
   title: "Services – Aurora Trip",
