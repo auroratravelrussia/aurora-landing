@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { company } from "../lib/data";
-import ContactForm from "../components/ContactForm";
-import PageHero from "../components/PageHero";
-import Reveal from "../components/Reveal";
+import ContactForm from "../_components/ContactForm";
+import PageHero from "../_components/PageHero";
+import Reveal from "../_components/Reveal";
 import Image from "next/image";
 
 export const metadata: Metadata = {

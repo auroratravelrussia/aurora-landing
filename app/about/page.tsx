@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
 import { company } from "../lib/data";
-import PageHero from "../components/PageHero";
-import Reveal from "../components/Reveal";
+import PageHero from "../_components/PageHero";
+import Reveal from "../_components/Reveal";
 
 export const metadata: Metadata = {
   title: "About – Aurora Trip",

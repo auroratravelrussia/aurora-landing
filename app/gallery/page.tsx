@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import PageHero from "../components/PageHero";
-import GalleryGrid from "../components/GalleryGrid";
-import FinalCTA from "../components/FinalCTA";
+import PageHero from "../_components/PageHero";
+import GalleryGrid from "../_components/GalleryGrid";
+import FinalCTA from "../_components/FinalCTA";
 
 export const metadata: Metadata = {
   title: "Gallery – Aurora Trip",
