@@ -115,24 +115,27 @@ export const destinations = [
   {
     name: "Moscow",
     subtitle: "Heart of Russia",
-    price: "From $1,450",
-    duration: "7 Days Tour",
+    description:
+      "Explore the iconic Red Square, the Kremlin, and vibrant city life in Russia's grand capital. A perfect blend of imperial history and modern culture.",
+    highlights: ["Red Square & Kremlin", "Bolshoi Theatre", "Metro Art Tour", "GUM Shopping"],
     image:
       "https://images.unsplash.com/photo-1513326738677-b964603b136d?w=900&q=80",
   },
   {
     name: "St. Petersburg",
     subtitle: "Imperial Elegance",
-    price: "From $1,280",
-    duration: "6 Days Tour",
+    description:
+      "Walk through palaces, canals, and world-class museums in Russia's most romantic city. Home to the Hermitage and White Nights phenomenon.",
+    highlights: ["The Hermitage Museum", "Peterhof Palace", "White Nights Festival", "Canal Cruises"],
     image:
       "https://images.unsplash.com/photo-1556610961-2fecc5927173?w=900&q=80",
   },
   {
     name: "Murmansk",
     subtitle: "Northern Lights",
-    price: "From $1,890",
-    duration: "5 Days Tour",
+    description:
+      "Journey to the Arctic Circle for a once-in-a-lifetime aurora borealis experience. Discover the rugged beauty of Russia's far north.",
+    highlights: ["Aurora Borealis Hunting", "Icebreaker Lenin", "Husky Safari", "Arctic Wildlife"],
     image:
       "https://images.unsplash.com/photo-1483347756197-71ef80e95f73?w=900&q=80",
   },

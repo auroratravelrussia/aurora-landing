@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Clock, ArrowRight } from "lucide-react";
+import { MapPin, CheckCircle2 } from "lucide-react";
 import { destinations } from "../lib/data";
 import Reveal from "./Reveal";
 
@@ -13,20 +13,19 @@ export default function Destinations() {
           <div>
             <Reveal>
               <p className="text-aurora-600 font-bold uppercase tracking-widest text-sm mb-3">
-                Top Selling
+                Explore Russia
               </p>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="font-display text-4xl lg:text-5xl font-bold text-ink">
-                Top{" "}
-                <span className="aurora-text italic">Destinations</span>
+                Info{" "}
+                <span className="aurora-text italic">Trip</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.2}>
             <p className="text-muted max-w-md">
-              From the golden domes of Moscow to the auroras of Murmansk — these
-              are the journeys our travelers love most.
+              From the golden domes of Moscow to the auroras of Murmansk — discover what each destination has to offer.
             </p>
           </Reveal>
         </div>
@@ -44,41 +43,36 @@ export default function Destinations() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={{ y: -12 }}
-              className="group bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-card transition-all cursor-pointer"
+              className="group bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-card transition-all"
             >
-              <div className="relative h-72 overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
                 <img
                   src={d.image}
                   alt={d.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1.2s] ease-out"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-aurora-900/60 via-transparent to-transparent" />
-                <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-xs font-bold text-aurora-700">
-                  {d.price}
-                </div>
+                <div className="absolute inset-0 bg-linear-to-t from-aurora-900/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 text-white">
-                  <p className="font-script text-xl leading-none">
-                    {d.subtitle}
-                  </p>
+                  <p className="font-script text-xl leading-none">{d.subtitle}</p>
                 </div>
               </div>
+
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
                   <MapPin size={14} className="text-aurora-600" />
-                  <h3 className="font-display text-xl font-bold text-ink">
-                    {d.name}
-                  </h3>
+                  <h3 className="font-display text-xl font-bold text-ink">{d.name}</h3>
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-muted text-sm">
-                    <Clock size={14} />
-                    <span>{d.duration}</span>
-                  </div>
-                  <ArrowRight
-                    size={18}
-                    className="text-aurora-500 group-hover:translate-x-1 transition-transform"
-                  />
-                </div>
+
+                <p className="text-muted text-sm leading-relaxed mb-4">{d.description}</p>
+
+                <ul className="space-y-1.5">
+                  {d.highlights.map((h) => (
+                    <li key={h} className="flex items-center gap-2 text-sm text-ink">
+                      <CheckCircle2 size={13} className="text-aurora-500 shrink-0" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           ))}
